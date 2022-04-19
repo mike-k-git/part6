@@ -11,7 +11,7 @@ const Anecdote = ({ anecdote, handleClick }) => {
       <div>{anecdote.content}</div>
       <div>
         has {anecdote.votes}
-        <button onClick={() => handleClick(anecdote.id)}>vote</button>
+        <button onClick={handleClick}>vote</button>
       </div>
     </div>
   )
@@ -34,7 +34,7 @@ const AnecdoteList = () => {
       key={anecdote.id}
       anecdote={anecdote}
       handleClick={() => {
-        dispatch(vote(anecdote.id))
+        dispatch(vote(anecdote))
         const removeTimeout = setTimeout(
           () => dispatch(removeNotification()),
           5000
